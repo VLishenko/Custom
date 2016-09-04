@@ -17,62 +17,16 @@
 				<!-- Start Main Content -->
 				<div class="col-md-10">
 					
-
-					<!-- Start Projections Block -->
+					<!-- Start Верхняя часть рубрики "Статьи" -->
 					
-					<!-- Start Projection 1 -->
-					<!-- <?php
-
-						if ( have_posts() ) :
-
-						get_posts(
-							array(
-								'numberposts' => 3,
-								'offset'      => 0,
-								'category_name'    => 'prognosis',
-							)
-						);
-
-						while (have_posts()) : the_post();
-
-					?>
-
-						<div class="col-md-12">
-							<div class="main-content-projection">
-								
-								<?php the_post_thumbnail(); ?>
-
-								<h3><?php the_title(); ?></h3>
-
-								<?php the_tags(''); ?>
-								
-								<?php the_excerpt(); ?>
-								
-								<div class="main-content-projection-details">
-									<a href="<?php the_permalink(); ?>">
-										подробнее...
-									</a>
-								</div>
-
-							</div>
-						</div>
-
-					<?php 
-					  endwhile;
-						endif;
-						wp_reset_query();                
-					?> -->
-					
-
 					<?php
 						global $post;
 
-						// записываем $post во временную переменную $tmp_post
 						$tmp_post = $post;
 						$args = array( 'posts_per_page' => 3, 'offset'=> 0, 'category' => 2 );
 						$myposts = get_posts( $args );
 						foreach( $myposts as $post ){ setup_postdata($post);
-							?>
+					?>
 						
 						<div class="col-md-12">
 							<div class="main-content-projection">
@@ -95,14 +49,11 @@
 						</div>
 
 						<?php
-						} 
+							} 
 
-						$post = $tmp_post;
+							$post = $tmp_post;
 						?>
-
-					<!-- End Projection 1 -->
-
-					<!-- End Projections Block -->
+						<!-- End Верхняя часть рубрики "Статьи" -->
 					
 
 					<!-- Start Our Experts -->
@@ -118,7 +69,7 @@
 								
 					<div class="expert-item-wrap col-md-12">
 							
-							<!-- Start Expert Item 1 -->
+							<!-- Start Вывод рубрики "Автор" -->
 							<?php
 								if ( have_posts() ) :
 								query_posts('category_name=experts;');
@@ -138,51 +89,18 @@
 								endif;
 								wp_reset_query();                
 							?>
-							<!-- End Expert Item 1 -->
+							<!-- End Вывод рубрики "Автор" -->
 
 					</div> <!-- .expert-item-wrap -->
 					<!-- End Our Experts -->
 
 					
 					<!-- Start Second Projections Block  -->
-
-					<!-- Start Projection 1 -->
-					<!-- <?php
-
-						if ( have_posts() ) :
-
-						// query_posts('cat=' . $id);
-						get_posts('category_name=prognosis&posts_per_page=3&offset=3');
-
-						while (have_posts()) : the_post();
-					?>
-
-						<div class="col-md-12">
-							<div class="main-content-projection">
-								
-								<?php the_post_thumbnail(); ?>
-
-								<h3><?php the_title(); ?></h3>
-
-								<?php the_tags(''); ?>
-								
-								<?php the_excerpt(); ?>
-								
-								<div class="main-content-projection-details">
-									<a href="<?php the_permalink(); ?>">
-										подробнее...
-									</a>
-								</div>
-
-							</div>
-						</div>
-
-					<?php endwhile; endif; wp_reset_query(); ?> -->
-
+					
+					<!-- Start Вывод нижней части рубрики "Статьи" -->
 					<?php
 						global $post;
 
-						// записываем $post во временную переменную $tmp_post
 						$tmp_post = $post;
 						$args = array( 'posts_per_page' => 3, 'offset'=> 3, 'category' => 2	);
 						$myposts = get_posts( $args );
@@ -210,12 +128,11 @@
 						</div>
 
 						<?php
-						} 
+							} 
 
-						$post = $tmp_post;
+							$post = $tmp_post;
 						?>
-
-					<!-- End Projection 1 -->
+						<!-- End Вывод нижней части рубрики "Статьи" -->
 
 					<!-- End Second Projections Block  -->
 
